@@ -58,9 +58,9 @@ const Header = () => {
           </li>
           <li className="flex items-center gap-8">
             {user && (
-              <div className="avatar">
-                <div className="w-9 rounded-full ring ring-primary ">
-                  <img src={user.photoURL} title={user.displayName} />
+              <div >
+                <div className="w-9 rounded-full ring ring-primary   " >
+                  <img src={user.photoURL}    />
                 </div>
               </div>
             )}
@@ -185,6 +185,6 @@ export default Header;
 //
 //     <Link to="/login">Login</Link>
 //   </div>
-// </div>
+// </div> className="avatar tooltip tooltip-bottom" data-tip={user.displayName}
 
 //
