@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../../../Providers/AuthProvider";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -9,7 +11,7 @@ const Header = () => {
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        console.log("user logged out");
+        toast.success("Logout Successfully 😀",{ autoClose: 1000 });
       })
       .catch((error) => {
         console.log("error", error);

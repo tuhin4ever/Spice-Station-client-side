@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const {singInWithGoogle} = useContext(AuthContext);
   const handleSubmit = (event) => {
@@ -18,6 +19,7 @@ const Login = () => {
     .then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
+      toast.success(`Welcome ${loggedUser.displayName} ✨` , {autoClose: 1500});
     })
     .catch((error) => {
       const errorCode = error.code;
