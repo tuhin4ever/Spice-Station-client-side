@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);

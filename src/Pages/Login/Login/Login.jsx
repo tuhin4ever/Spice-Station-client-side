@@ -3,30 +3,61 @@ import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
+
 const Login = () => {
-  const {singInWithGoogle} = useContext(AuthContext);
+  const { singIn, singInWithGoogle,singInWithGithub } = useContext(AuthContext);
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+   
+    singIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        toast.success(`Welcome ${loggedUser.displayName} ✨`, {
+          autoClose: 1500,
+        });
+        form.reset();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const handleGoogleSingIn = () => {
     singInWithGoogle()
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+        toast.success(`Welcome ${loggedUser.displayName} ✨`, {
+          autoClose: 1500,
+        });
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      });
+  };
+const handleGithubSingIn = () => {
+  singInWithGithub()
     .then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
-      toast.success(`Welcome ${loggedUser.displayName} ✨` , {autoClose: 1500});
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode, errorMessage);
-    })
-  }
+      toast.success(`Welcome ${loggedUser.displayName} ✨`, {
+        autoClose: 1500,
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log(errorCode, errorMessage);
+      })
+    })  
+}
 
   return (
     <div
@@ -91,7 +122,7 @@ const Login = () => {
           </button>
         </div>
         <div className="mt-5 text-center">
-          <button className="w-72 btn btn-outline btn-accent">
+          <button onClick={handleGithubSingIn} className="w-72 btn btn-outline btn-accent">
             <FaGithub className="m-2" />
             GitHub Sign-in
           </button>

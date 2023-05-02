@@ -1,14 +1,47 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../../../Providers/AuthProvider";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Register = () => {
+  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const handleRegister = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const displayName = form.displayName.value;
+    const photoURL = form.photoURL.value;
+
+    createUser(email, password).then((result) => {
+      const loggedUser = result.user;
+      if (loggedUser) {
+        updateUserProfile({
+          displayName,
+          photoURL,
+        }).catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode, errorMessage);
+        });
+
+        toast.success(`Welcome ${loggedUser.displayName} ✨`, {
+          autoClose: 1500,
+        });
+        form.reset();
+      }
+    });
+  };
+
   return (
-    <div className="min-h-screen relative bg-cover bg-center flex justify-center items-center "
-    style={{
-      backgroundImage: `url("https://i.ibb.co/W6h0DcC/pexels-roman-odintsov-4551416.jpg")`,
-    }}>
+    <div
+      className="min-h-screen relative bg-cover bg-center flex justify-center items-center "
+      style={{
+        backgroundImage: `url("https://i.ibb.co/W6h0DcC/pexels-roman-odintsov-4551416.jpg")`,
+      }}
+    >
       <div className="p-10 mt-5  md:w-2/5 mx-auto shadow-xl rounded bg-white opacity-80">
-        <form>
+        <form onSubmit={handleRegister}>
           <h4 className="font-bold text-center mb-4 text-orange-500">
             Please Register
           </h4>
@@ -18,7 +51,7 @@ const Register = () => {
             </label>
             <input
               type="text"
-              name="name"
+              name="displayName"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Enter Your Name"
               required
@@ -57,7 +90,7 @@ const Register = () => {
             </label>
             <input
               type="text"
-              name="photo"
+              name="photoURL"
               placeholder="Photo URL"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
