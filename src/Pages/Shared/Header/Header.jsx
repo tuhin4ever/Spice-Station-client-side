@@ -4,14 +4,13 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
 
-
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
-        toast.success("Logout Successfully 😀",{ autoClose: 1000 });
+        toast.success("Logout Successfully 😀", { autoClose: 1000 });
       })
       .catch((error) => {
         console.log("error", error);
@@ -58,9 +57,12 @@ const Header = () => {
           </li>
           <li className="flex items-center gap-8">
             {user && (
-              <div >
-                <div className="w-9 rounded-full ring ring-primary   " >
-                  <img src={user.photoURL}    />
+              <div
+                className="avatar tooltip tooltip-bottom tooltip-primary"
+                data-tip={user.displayName}
+              >
+                <div className="w-9 rounded-full ring ring-primary   ">
+                  <img src={user.photoURL} />
                 </div>
               </div>
             )}
@@ -120,26 +122,38 @@ const Header = () => {
                 <nav>
                   <ul className="space-y-4">
                     <li>
-                      <Link to="/" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400">
+                      <Link
+                        to="/"
+                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                      >
                         Home
                       </Link>
                     </li>
                     <li>
-                      <Link to="/register" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400">
+                      <Link
+                        to="/register"
+                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                      >
                         Register
                       </Link>
                     </li>
                     <li>
-                      <Link to="/about" className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400">
+                      <Link
+                        to="/about"
+                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                      >
                         About Us
                       </Link>
                     </li>
 
                     <li className="flex items-center gap-8">
                       {user && (
-                        <div className="avatar">
+                        <div
+                          className="avatar tooltip tooltip-bottom tooltip-primary"
+                          data-tip={user.displayName}
+                        >
                           <div className="w-9 rounded-full  ring-1 ring-primary">
-                            <img src={user.photoURL} title={user.displayName} />
+                            <img src={user.photoURL} />
                           </div>
                         </div>
                       )}
@@ -185,6 +199,6 @@ export default Header;
 //
 //     <Link to="/login">Login</Link>
 //   </div>
-// </div> className="avatar tooltip tooltip-bottom" data-tip={user.displayName}
+// </div>
 
 //

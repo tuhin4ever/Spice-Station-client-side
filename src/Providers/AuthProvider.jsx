@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from "react";
 import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import { toast } from "react-toastify";
 
 export const AuthContext = createContext(null);
 
@@ -9,6 +10,8 @@ const googleAuthProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
 
 const AuthProvider = ({ children }) => {
+  const [reload, setReload] = useState(null);
+
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   console.log(user);
@@ -35,17 +38,22 @@ const AuthProvider = ({ children }) => {
 useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser =>{
         console.log('auth state change' , currentUser);
-        
         setUser(currentUser);
-
         setLoading(false)
     })
+    if(reload){
+      toast.success(`Welcome ${user.displayName} ✨`, {
+        autoClose: 1500,
+      });
+    }
     return () => unsubscribe();
-},[])
+},[reload])
+
   const authInfo = {
     user,
     createUser,
     updateUserProfile,
+    setReload,
     singIn,
     singInWithGoogle,
     singInWithGithub,

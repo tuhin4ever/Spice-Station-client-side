@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+
 const Register = () => {
-  const { createUser, updateUserProfile } = useContext(AuthContext);
+  const { createUser, updateUserProfile ,setReload} = useContext(AuthContext);
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -19,15 +19,17 @@ const Register = () => {
         updateUserProfile({
           displayName,
           photoURL,
-        }).catch((error) => {
+        })
+        .then(()=>{
+          setReload(new Date().getTime())
+        })
+        .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
           console.log(errorCode, errorMessage);
         });
 
-        toast.success(`Welcome ${loggedUser.displayName} ✨`, {
-          autoClose: 1500,
-        });
+        
         form.reset();
       }
     });
