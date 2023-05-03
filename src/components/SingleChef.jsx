@@ -4,10 +4,11 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
+  // console.log(chef);
   const { id, name, picture, description, likes } = chef;
   return (
     <div>
-      <div className="mt-5 max-w-sm bg-white border border-gray-200 rounded-lg shadow p-2">
+      <div className="mt-5 max-w-sm bg-white border border-gray-200 rounded-lg shadow-md p-2">
         <LazyLoadImage
           className="rounded-t-lg"
           loading="lazy"

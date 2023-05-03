@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
+import { FaHamburger } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -23,7 +24,7 @@ const Header = () => {
       <div className="relative flex items-center justify-between ">
         {/* Logo Section */}
         <Link to="/" className="inline-flex items-center">
-          <img src="https://i.ibb.co/SP5qf5f/fast-food-3.png" alt="" />
+          <FaHamburger color="orange" size="30px" />
           <span className="ml-2 text-xl font-bold tracking-wide text-orange-500">
             Spice Station
           </span>
@@ -98,10 +99,7 @@ const Header = () => {
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <Link to="/" className="inline-flex items-center">
-                      <img
-                        src="https://i.ibb.co/SP5qf5f/fast-food-3.png"
-                        alt=""
-                      />
+                      <FaHamburger color="orange" size="30px" />
                       <span className="ml-2 text-xl font-bold tracking-wide text-orange-500">
                         Spice Station
                       </span>
@@ -185,20 +183,3 @@ const Header = () => {
 };
 
 export default Header;
-
-// <div className="w-9/12 mx-auto mt-5 flex justify-between items-center">
-//   <h2 className="text-3xl font-bold "></h2>
-//   <nav className="flex gap-2">
-//     <Link to="/" className="font-semibold text-xl">
-//       Home
-//     </Link>
-//     <Link className="font-semibold text-xl">Blog</Link>
-//     <Link className="font-semibold text-xl">Contact Us</Link>
-//   </nav>
-//   <div className="flex gap-2 items-center">
-//
-//     <Link to="/login">Login</Link>
-//   </div>
-// </div>
-
-//
