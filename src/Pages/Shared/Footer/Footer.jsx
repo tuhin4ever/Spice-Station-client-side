@@ -10,10 +10,11 @@ const Footer = () => {
           </span>
           <p className="p-5">
             The Spice Station team believes that cooking should be an adventure
-            and that everyone can create delicious, restaurant-quality dishes at
-            home with the right guidance and inspiration. They share recipes
-            that are both accessible and approachable, with step-by-step
-            instructions and helpful tips for cooks of all levels.
+            and that everyone can create delicious, The best food delivery
+            service in the world takes food safety seriously, ensuring that
+            every meal is prepared and delivered following strict hygiene
+            protocols, giving customers peace of mind and confidence in the
+            quality of their food.
           </p>
           <img
             className="ml-4"
@@ -29,7 +30,7 @@ const Footer = () => {
             <ul className="text-center space-y-2">
               <li>About Us</li>
               <li>Food</li>
-              <li>Latest News</li>
+              <li>Latest Menu</li>
               <li>Station</li>
             </ul>
           </div>

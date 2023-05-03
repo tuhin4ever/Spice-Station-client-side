@@ -18,11 +18,13 @@ const Banner = () => {
               Spice Station
             </span>
           </h1>
-          <p className="text-xl text-center text-orange-300">
-            The best food delivery service in the world
+          <p className="text-xl text-center text-orange-300 ">
+            Revolutionizing the food delivery industry with technology-driven
+            solutions, the best food delivery service in the world offers
+            unparalleled convenience and efficiency for customers worldwide.
           </p>
           <button className="btn btn-outline btn-warning w-72 mt-5">
-            Order Now
+            Explore Now
           </button>
         </div>
       </div>
