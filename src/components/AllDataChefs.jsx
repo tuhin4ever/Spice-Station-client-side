@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import SingleChef from "./SingleChef";
-import { FaSpinner } from "react-icons/fa";
+import LoadingSpinner from "../LoadingSpinner.jsx/LoadingSpinner";
+// import { FaSpinner } from "react-icons/fa";
 
 const AllDataChefs = () => {
   const [data, setData] = useState([]);
@@ -17,9 +18,7 @@ const AllDataChefs = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen">
-        <FaSpinner className="animate-spin h-12 w-12 text-orange-500" />
-      </div>
+      <LoadingSpinner></LoadingSpinner>
     );
   }
 
@@ -55,3 +54,7 @@ export default AllDataChefs;
 // };
 
 // export default AllDataChefs;
+
+{/* <div className="flex justify-center items-center h-screen">
+        <FaSpinner className="animate-spin h-12 w-12 text-orange-500" />
+      </div> */}

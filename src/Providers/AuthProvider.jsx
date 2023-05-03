@@ -30,16 +30,20 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, profile);
   };
   const createUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password)
       
   };
   const singIn = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
   const singInWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleAuthProvider);
   };
   const singInWithGithub = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -63,6 +67,7 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    loading,
     createUser,
     updateUserProfile,
     setReload,

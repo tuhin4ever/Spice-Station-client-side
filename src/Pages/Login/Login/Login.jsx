@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
 
@@ -10,6 +10,14 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const { singIn, singInWithGoogle, singInWithGithub } =
     useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  const location = useLocation();
+  console.log("login page location", location);
+  const from = location.state?.from || "/";
+  console.log("login page from", from)
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -21,6 +29,7 @@ const Login = () => {
       .then((result) => {
         const loggedUser = result.user;
         console.log(loggedUser);
+        navigate(from, { replace: true });
         setSuccess("User logged in successfully");
         setError("");
         toast.success(`Welcome ${loggedUser.displayName} ✨`, {
@@ -38,6 +47,7 @@ const Login = () => {
     singInWithGoogle()
       .then((result) => {
         const loggedUser = result.user;
+        navigate(from, { replace: true });
         console.log(loggedUser);
         toast.success(`Welcome ${loggedUser.displayName} ✨`, {
           autoClose: 1500,
