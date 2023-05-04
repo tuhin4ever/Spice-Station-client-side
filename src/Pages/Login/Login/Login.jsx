@@ -75,7 +75,6 @@ const Login = () => {
     });
   };
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -137,7 +136,7 @@ const Login = () => {
               </Link>
             </label>
           </div>
-          
+
           <button
             type="submit"
             className="text-center text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 dark:bg-orange-600 dark:hover:bg-orange-700"

@@ -3,6 +3,7 @@ import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const Recipe = ({ recipe }) => {
   const { name, picture, ingredients, method, rating } = recipe;
@@ -22,9 +23,17 @@ const Recipe = ({ recipe }) => {
 
   return (
     <div>
-      <div className="card border shadow-md h-full" >
+      <div className="card border shadow-md h-full">
         <figure className="p-5">
-          <img src={picture} alt="" className="rounded-xl" />
+        <LazyLoadImage
+          className="rounded-xl"
+          loading="lazy"
+          width="100%"
+          height="100%"
+          src={picture}
+          alt=""
+        />
+          {/* <img src={picture} alt="" className="rounded-xl" /> */}
         </figure>
         <div className="card-body items-center ">
           <h2 className="card-title font-bold text-orange-500"> {name}</h2>

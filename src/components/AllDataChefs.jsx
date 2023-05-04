@@ -34,7 +34,9 @@ const AllDataChefs = () => {
       <div className="text-center">
         {!showAll && (
           <span onClick={handleShowAll}>
-            <button className="btn glass shadow-xl outline-red-500 text-orange-600">Show All</button>
+            <button className="btn glass shadow-xl outline-red-500 text-orange-600">
+              Show All
+            </button>
           </span>
         )}
       </div>
