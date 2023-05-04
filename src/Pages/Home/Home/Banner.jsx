@@ -20,9 +20,7 @@ const Banner = () => {
             </span>
           </h1>
           <p className="text-xl text-center text-orange-300 ">
-            Revolutionizing the food delivery industry with technology-driven
-            solutions, the best food delivery service in the world offers
-            unparalleled convenience and efficiency for customers worldwide.
+          Your go-to destination for high-quality spices and herbs from around the world!
           </p>
           <Link to="/error" className="btn btn-outline btn-warning w-72 mt-5">
             Explore Now

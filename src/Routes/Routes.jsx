@@ -33,7 +33,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/chef/${params.id}`),
+          fetch(`https://spice-station-server-tuhin4ever.vercel.app/chef/${params.id}`),
       },
       {
         path: 'loader',

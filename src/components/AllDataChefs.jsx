@@ -8,7 +8,7 @@ const AllDataChefs = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/chef")
+    fetch("https://spice-station-server-tuhin4ever.vercel.app/chef")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
