@@ -34,16 +34,18 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://spice-station-server-tuhin4ever.vercel.app/chef/${params.id}`),
+          fetch(
+            `https://spice-station-server-tuhin4ever.vercel.app/chef/${params.id}`
+          ),
       },
       {
         path: "blog",
         element: <Blog></Blog>,
       },
       {
-        path: 'loader',
+        path: "loader",
         element: <LoadingSpinner />,
-      }
+      },
     ],
   },
 ]);

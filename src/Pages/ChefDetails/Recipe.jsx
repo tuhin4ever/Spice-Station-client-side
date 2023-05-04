@@ -5,23 +5,24 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Recipe = ({ recipe }) => {
-  
   const { name, picture, ingredients, method, rating } = recipe;
   const [fav, setFav] = useState(false);
   const [clicked, setClicked] = useState(false);
 
   const notify = () => {
-    toast("Added to Favorite");
+    toast("Added to Favorite 🧡", {
+      autoClose: 1500,
+    });
     setClicked(true);
   };
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div>
-      <div className="card border shadow-md ">
+      <div className="card border shadow-md h-full" >
         <figure className="p-5">
           <img src={picture} alt="" className="rounded-xl" />
         </figure>
@@ -32,15 +33,19 @@ const Recipe = ({ recipe }) => {
               <h3 className="text-2xl font-semibold">Ingredients</h3>
               <ul>
                 {ingredients.map((ingredient, index) => (
-                  <li className="list-disc" key={index}>{ingredient}</li>
+                  <li className="list-disc" key={index}>
+                    {ingredient}
+                  </li>
                 ))}
               </ul>
             </div>
-            <div >
+            <div>
               <h3 className="text-2xl font-semibold">Method</h3>
               <ul>
-                {method.map((step,index) => (
-                  <li className="list-disc" key={index}>{step}</li>
+                {method.map((step, index) => (
+                  <li className="list-disc" key={index}>
+                    {step}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -48,8 +53,7 @@ const Recipe = ({ recipe }) => {
           <div className="flex justify-evenly items-center gap-10">
             <div className="flex justify-center items-center gap-1">
               <h3 className="text-xl font-semibold">{rating}</h3>
-              <Rating style={{ maxWidth: 150 }}  value={rating} readOnly />
-         
+              <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
             </div>
             <div className="flex justify-center items-center gap-2">
               <p className="text-xl font-semibold">Add to Favorite</p>

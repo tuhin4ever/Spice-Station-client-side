@@ -79,7 +79,7 @@ const Login = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div
       className="min-h-screen relative bg-cover bg-center flex justify-center items-center "
@@ -124,6 +124,8 @@ const Login = () => {
               </small>
             </p>
           </div>
+          <p className="text-red-500 text-sm mb-3">{error}</p>
+          <p className="text-green-500 text-sm mb-3">{success}</p>
           <div className="flex items-start mb-6">
             <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-500">
               Don't Have an Account ?{" "}
@@ -135,8 +137,7 @@ const Login = () => {
               </Link>
             </label>
           </div>
-          <p className="text-red-500 text-sm mb-3">{error}</p>
-          <p className="text-green-500 text-sm mb-3">{success}</p>
+          
           <button
             type="submit"
             className="text-center text-white font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 dark:bg-orange-600 dark:hover:bg-orange-700"
