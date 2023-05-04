@@ -7,6 +7,7 @@ import ChefDetails from "../Pages/ChefDetails/ChefDetails";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import LoadingSpinner from "../LoadingSpinner.jsx/LoadingSpinner";
+import Blog from "../Pages/Blog/Blog";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`https://spice-station-server-tuhin4ever.vercel.app/chef/${params.id}`),
+      },
+      {
+        path: "blog",
+        element: <Blog></Blog>,
       },
       {
         path: 'loader',

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "@smastrom/react-rating/style.css";
 import { Rating } from "@smastrom/react-rating";
 import { FaHeart, FaRegHeart } from "react-icons/fa";
@@ -14,6 +14,11 @@ const Recipe = ({ recipe }) => {
     toast("Added to Favorite");
     setClicked(true);
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div>
       <div className="card border shadow-md ">

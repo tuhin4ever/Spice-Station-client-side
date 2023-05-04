@@ -1,11 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-  // const [show, setShow] =
+  const [show, setShow] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const { singIn, singInWithGoogle, singInWithGithub } =
@@ -16,7 +16,7 @@ const Login = () => {
   const location = useLocation();
   console.log("login page location", location);
   const from = location.state?.from || "/";
-  console.log("login page from", from)
+  console.log("login page from", from);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -75,6 +75,11 @@ const Login = () => {
     });
   };
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div
       className="min-h-screen relative bg-cover bg-center flex justify-center items-center "
@@ -107,12 +112,17 @@ const Login = () => {
               Your password
             </label>
             <input
-              type="password"
+              type={show ? "text" : "password"}
               name="password"
               placeholder="Enter Your Password"
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
+            <p onClick={() => setShow(!show)}>
+              <small>
+                {show ? <span>Hide Password</span> : <span>Show Password</span>}
+              </small>
+            </p>
           </div>
           <div className="flex items-start mb-6">
             <label className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-500">
