@@ -42,10 +42,10 @@ const Header = () => {
           </li>
           <li>
             <NavLink
-              to="/about"
+              to="/blog"
               className={({ isActive }) => (isActive ? "active" : "default")}
             >
-              About Us
+              Blog
             </NavLink>
           </li>
           <li>
@@ -137,10 +137,10 @@ const Header = () => {
                     </li>
                     <li>
                       <Link
-                        to="/about"
+                        to="/blog"
                         className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
                       >
-                        About Us
+                        Blog
                       </Link>
                     </li>
 

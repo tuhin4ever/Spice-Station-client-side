@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -23,9 +24,9 @@ const Banner = () => {
             solutions, the best food delivery service in the world offers
             unparalleled convenience and efficiency for customers worldwide.
           </p>
-          <button className="btn btn-outline btn-warning w-72 mt-5">
+          <Link to="/error" className="btn btn-outline btn-warning w-72 mt-5">
             Explore Now
-          </button>
+          </Link>
         </div>
       </div>
     </div>

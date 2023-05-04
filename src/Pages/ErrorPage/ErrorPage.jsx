@@ -18,7 +18,7 @@ const ErrorPage = () => {
             {error?.message}
           </p>
           <Link to="/" >
-            <button class="btn btn-secondary md:mt-5">Back to homepage</button>
+            <button className="btn btn-secondary md:mt-5">Back to homepage</button>
           </Link>
         </div>
       </div>

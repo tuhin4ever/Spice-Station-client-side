@@ -1,11 +1,19 @@
 import React from "react";
-import { FaRegHeart } from "react-icons/fa";
+import { FaConciergeBell, FaMapMarkerAlt, FaRegHeart } from "react-icons/fa";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { Link } from "react-router-dom";
 
 const SingleChef = ({ chef }) => {
   // console.log(chef);
-  const { id, name, picture_chef, years_of_experience, likes } = chef;
+  const {
+    id,
+    name,
+    picture_chef,
+    years_of_experience,
+    likes,
+    num_recipes,
+    location,
+  } = chef;
   return (
     <div>
       <div className="mt-5 max-w-sm bg-white border border-gray-200 rounded-lg shadow-md p-2">
@@ -21,6 +29,12 @@ const SingleChef = ({ chef }) => {
           <h5 className="mb-2 text-2xl font-bold ">{name}</h5>
           <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
             {years_of_experience} Years of experience
+          </p>
+          <p className="flex items-center gap-2 mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <FaConciergeBell></FaConciergeBell> {num_recipes} Recipes
+          </p>
+          <p className="flex items-center gap-2 mb-3 font-normal text-gray-700 dark:text-gray-400">
+            <FaMapMarkerAlt></FaMapMarkerAlt> {location}
           </p>
           <div className="flex justify-between">
             <Link to={`/chef/${id}`}>

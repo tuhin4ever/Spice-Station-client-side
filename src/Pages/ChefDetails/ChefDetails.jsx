@@ -3,11 +3,9 @@ import { FaHeart } from "react-icons/fa";
 import { useLoaderData } from "react-router-dom";
 import Recipe from "./Recipe";
 
-
 const ChefDetails = () => {
   const chef = useLoaderData();
   const {
-    
     name,
     picture_chef,
     description,
@@ -16,7 +14,7 @@ const ChefDetails = () => {
     years_of_experience,
     recipes,
   } = chef;
-  console.log(recipes);
+
   return (
     <>
       <div className="w-9/12 mx-auto md:flex justify-between  items-center gap-5 mt-5">
@@ -42,14 +40,15 @@ const ChefDetails = () => {
         </div>
       </div>
       <div>
-        <h1 className="text-3xl font-bold text-center mt-5">Recipes</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-9/12 mx-auto my-container">
-          {recipes.map((recipe) => (
-            
-            <Recipe  key={recipe.id} recipe={recipe}></Recipe>
-          ))}
-          
-        </div>
+        <>
+          <h1 className="text-3xl font-bold text-center mt-10">Recipes</h1>
+          <hr className="w-48 h-1 mx-auto  bg-gray-100 border-0 rounded mt-3 dark:bg-orange-700" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-9/12 mx-auto my-container">
+            {recipes.map((recipe) => (
+              <Recipe key={recipe.id} recipe={recipe}></Recipe>
+            ))}
+          </div>
+        </>
       </div>
     </>
   );

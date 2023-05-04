@@ -26,16 +26,16 @@ const Recipe = ({ recipe }) => {
             <div className="w-6/12">
               <h3 className="text-2xl font-semibold">Ingredients</h3>
               <ul>
-                {ingredients.map((ingredient) => (
-                  <li className="list-disc">{ingredient}</li>
+                {ingredients.map((ingredient, index) => (
+                  <li className="list-disc" key={index}>{ingredient}</li>
                 ))}
               </ul>
             </div>
-            <div>
+            <div >
               <h3 className="text-2xl font-semibold">Method</h3>
               <ul>
-                {method.map((step) => (
-                  <li className="list-disc">{step}</li>
+                {method.map((step,index) => (
+                  <li className="list-disc" key={index}>{step}</li>
                 ))}
               </ul>
             </div>
@@ -43,7 +43,8 @@ const Recipe = ({ recipe }) => {
           <div className="flex justify-evenly items-center gap-10">
             <div className="flex justify-center items-center gap-1">
               <h3 className="text-xl font-semibold">{rating}</h3>
-              <Rating style={{ maxWidth: 150 }} value={rating} readOnly />
+              <Rating style={{ maxWidth: 150 }}  value={rating} readOnly />
+         
             </div>
             <div className="flex justify-center items-center gap-2">
               <p className="text-xl font-semibold">Add to Favorite</p>
@@ -66,3 +67,4 @@ const Recipe = ({ recipe }) => {
 };
 
 export default Recipe;
+// className="h-[66px] overflow-hidden mb-5"
