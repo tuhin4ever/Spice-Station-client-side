@@ -62,6 +62,7 @@ const Login = () => {
   const handleGithubSingIn = () => {
     singInWithGithub().then((result) => {
       const loggedUser = result.user;
+      navigate(from, { replace: true });
       console.log(loggedUser);
       toast
         .success(`Welcome ${loggedUser.displayName} ✨`, {
