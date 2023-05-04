@@ -48,14 +48,16 @@ const Header = () => {
               Blog
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              to="/register"
-              className={({ isActive }) => (isActive ? "active" : "default")}
-            >
-              Register
-            </NavLink>
-          </li>
+          {!user && (
+            <li>
+              <NavLink
+                to="/register"
+                className={({ isActive }) => (isActive ? "active" : "default")}
+              >
+                Register
+              </NavLink>
+            </li>
+          )}
           <li className="flex items-center gap-8">
             {user && (
               <div
@@ -127,14 +129,16 @@ const Header = () => {
                         Home
                       </Link>
                     </li>
-                    <li>
-                      <Link
-                        to="/register"
-                        className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
-                      >
-                        Register
-                      </Link>
-                    </li>
+                    {!user && (
+                      <li>
+                        <Link
+                          to="/register"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                        >
+                          Register
+                        </Link>
+                      </li>
+                    )}
                     <li>
                       <Link
                         to="/blog"
