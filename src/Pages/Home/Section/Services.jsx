@@ -1,5 +1,5 @@
 import React from "react";
-import { FaCoffee, FaUser, FaUtensilSpoon } from "react-icons/fa";
+import { FaConciergeBell, FaUser, FaUtensilSpoon } from "react-icons/fa";
 
 const Services = () => {
   return (
@@ -18,7 +18,7 @@ const Services = () => {
           <div className="card bg-orange-50 border border-gray-200 rounded-lg shadow-md">
             <div className="card-body">
               <h2 className="card-title">
-                <FaCoffee></FaCoffee> Recipes of all Chefs
+                <FaConciergeBell /> Recipes of all Chefs
               </h2>
             </div>
           </div>

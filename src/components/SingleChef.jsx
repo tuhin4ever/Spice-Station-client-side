@@ -38,7 +38,7 @@ const SingleChef = ({ chef }) => {
           </p>
           <div className="flex justify-between">
             <Link to={`/chef/${id}`}>
-              <button className="btn btn-secondary">View Recipes</button>
+              <button className="my-btn">View Recipes</button>
             </Link>
             <div className="flex gap-2 items-center">
               <FaRegHeart className="text-red-600"></FaRegHeart>

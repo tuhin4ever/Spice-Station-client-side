@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import { toast } from "react-toastify";
-import { FaHamburger } from "react-icons/fa";
+import { FaHamburger, FaSearch } from "react-icons/fa";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -48,16 +48,25 @@ const Header = () => {
               Blog
             </NavLink>
           </li>
-          {!user && (
-            <li>
-              <NavLink
-                to="/register"
-                className={({ isActive }) => (isActive ? "active" : "default")}
-              >
-                Register
-              </NavLink>
-            </li>
+
+          {!user ? (
+            <NavLink
+              to="/register"
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              Register
+            </NavLink>
+          ) : (
+            <NavLink
+              to="/search"
+              className={({ isActive }) => (isActive ? "active" : "default")}
+            >
+              <p className="flex items-center gap-2">
+                <FaSearch /> Search
+              </p>
+            </NavLink>
           )}
+
           <li className="flex items-center gap-8">
             {user && (
               <div
@@ -129,16 +138,7 @@ const Header = () => {
                         Home
                       </Link>
                     </li>
-                    {!user && (
-                      <li>
-                        <Link
-                          to="/register"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
-                        >
-                          Register
-                        </Link>
-                      </li>
-                    )}
+
                     <li>
                       <Link
                         to="/blog"
@@ -146,6 +146,25 @@ const Header = () => {
                       >
                         Blog
                       </Link>
+                    </li>
+                    <li>
+                      {!user ? (
+                        <Link
+                          to="/register"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                        >
+                          Register
+                        </Link>
+                      ) : (
+                        <Link
+                          to="/search"
+                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-orange-400"
+                        >
+                          <p className="flex items-center gap-2">
+                            <FaSearch /> Search
+                          </p>
+                        </Link>
+                      )}
                     </li>
 
                     <li className="flex items-center gap-8">

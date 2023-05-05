@@ -14,21 +14,21 @@ const Login = () => {
   const navigate = useNavigate();
 
   const location = useLocation();
-  console.log("login page location", location);
+  // console.log("login page location", location);
   const from = location.state?.from || "/";
-  console.log("login page from", from);
+  // console.log("login page from", from);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    // console.log(email, password);
 
     singIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
         navigate(from, { replace: true });
         setSuccess("User logged in successfully");
         setError("");

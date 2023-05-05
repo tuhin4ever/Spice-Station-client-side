@@ -8,7 +8,9 @@
 .active {
   @apply font-medium tracking-wide text-orange-600 transition-colors duration-200 hover:text-orange-400;
 }
-
+.my-btn {
+  @apply btn glass text-orange-500 hover:bg-orange-500 hover:text-white transition duration-300 ease-in-out;
+}
 .default {
   @apply font-medium tracking-wide text-white transition-colors duration-200 hover:text-orange-400;
 }

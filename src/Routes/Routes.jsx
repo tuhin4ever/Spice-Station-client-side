@@ -8,6 +8,8 @@ import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import LoadingSpinner from "../LoadingSpinner.jsx/LoadingSpinner";
 import Blog from "../Pages/Blog/Blog";
+import Search from "../Pages/SearchPage/Search/Search";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "loader",
         element: <LoadingSpinner />,
+      },
+      {
+        path: "search",
+        element: <Search></Search>,
       },
     ],
   },

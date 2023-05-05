@@ -11,7 +11,9 @@ const Recipe = ({ recipe }) => {
   const [clicked, setClicked] = useState(false);
 
   const notify = () => {
+    // toast centered
     toast("Added to Favorite 🧡", {
+      position: "top-center",
       autoClose: 1500,
     });
     setClicked(true);
@@ -25,14 +27,14 @@ const Recipe = ({ recipe }) => {
     <div>
       <div className="card border shadow-md h-full">
         <figure className="p-5">
-        <LazyLoadImage
-          className="rounded-xl"
-          loading="lazy"
-          width="100%"
-          height="100%"
-          src={picture}
-          alt=""
-        />
+          <LazyLoadImage
+            className="rounded-xl"
+            loading="lazy"
+            width="100%"
+            height="100%"
+            src={picture}
+            alt=""
+          />
           {/* <img src={picture} alt="" className="rounded-xl" /> */}
         </figure>
         <div className="card-body items-center ">
