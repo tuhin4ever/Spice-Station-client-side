@@ -26,6 +26,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   // console.log(user);
+
   const updateUserProfile = (profile) => {
     return updateProfile(auth.currentUser, profile);
   };
@@ -58,7 +59,8 @@ const AuthProvider = ({ children }) => {
     });
     if (reload) {
       toast.success(`Welcome ${user.displayName} ✨`, {
-        autoClose: 1500,
+        hideProgressBar: true,
+        position: "top-center",
       });
     }
     return () => unsubscribe();
