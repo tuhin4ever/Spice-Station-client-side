@@ -1,13 +1,16 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
 const Register = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from || "/";
   const { createUser, updateUserProfile, setReload } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
   const handleRegister = (event) => {
+    navigate(from, { replace: true });
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
