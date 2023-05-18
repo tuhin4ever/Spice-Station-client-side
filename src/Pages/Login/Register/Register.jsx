@@ -10,7 +10,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const handleRegister = (event) => {
-    navigate(from, { replace: true });
+    
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -35,6 +35,7 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
+        navigate(from, { replace: true });
         if (loggedUser) {
           updateUserProfile({
             displayName,
